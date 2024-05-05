@@ -25,7 +25,11 @@
                     <a class="nav-link" href="{{ route('register') }}">Signup</a>
                 @else
                     <!-- Display user name or dropdown menu for logged-in users -->
-                    <span>Welcome, {{ Auth::user()->name }}</span>
+                    <span>Hello, {{ Auth::user()->name }}</span>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit">Logout</button>
+                    </form>
                 @endguest
             </div>
         </div>
@@ -40,3 +44,4 @@
     <!-- Add JavaScript scripts or link to a JS file here -->
 </body>
 </html>
+

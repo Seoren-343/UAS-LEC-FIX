@@ -38,6 +38,14 @@ class CustomAuthController extends Controller
             return back()->withErrors(['loginError' => 'Invalid credentials']);
         }
     }
+    public function logout(Request $request)
+    {
+        Auth::logout(); // Logout the user
+
+        $request->session()->invalidate(); // Invalidate the session
+
+        return redirect('/homepage'); // Redirect to the homepage or desired page after logout
+    }
 
     public function showRegistrationForm()
     {
