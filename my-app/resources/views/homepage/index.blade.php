@@ -10,10 +10,11 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <a class="navbar-brand" href="#">Your Website</a>
+            <a class="navbar-brand">Your Website</a>
             <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Founder</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Category Bus</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('category-bus') }}">Category Bus</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Destination</a></li>
