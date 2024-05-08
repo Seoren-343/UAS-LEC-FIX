@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\ContactController;
 
-Route::get('/homepage', function () {
+Route::get('/', function () {
     return view('homepage.index');
-});
+})->name('home');
 
 Route::get('/login', 'App\Http\Controllers\CustomAuthController@showLoginForm')->name('login');
 Route::post('/login', 'App\Http\Controllers\CustomAuthController@login');
@@ -14,7 +15,7 @@ Route::post('/register', 'App\Http\Controllers\CustomAuthController@register');
 Route::post('/logout', 'App\Http\Controllers\CustomAuthController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
-    // Add routes that require authentication here
 });
 
 Route::get('/category-bus', [BusController::class, 'categoryBus'])->name('category.bus');
+Route::get('/contacts', [ContactController::class, 'contacts'])->name('category.contacts');

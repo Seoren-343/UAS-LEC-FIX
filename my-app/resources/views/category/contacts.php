@@ -3,26 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Your Website</title>
+    <title>Contact Us</title>
     <!-- Add CSS stylesheets or link to a CSS file here -->
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            position: relative;
         }
 
         .navbar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
             background-color: #333;
             color: #fff;
             padding: 10px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
         }
 
@@ -48,12 +43,9 @@
             text-decoration: none;
         }
 
-        .navbar-auth {
-            margin-left: 10px;
-        }
-
         .container {
             max-width: 1200px;
+            margin: 50px auto 20px; /* Added margin-top for content */
             padding: 20px;
         }
 
@@ -67,7 +59,7 @@
     <nav class="navbar">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Founder</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('category-bus') }}">Category Bus</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
@@ -75,25 +67,17 @@
             <li class="nav-item"><a class="nav-link" href="#">Destination</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
         </ul>
-        <div class="navbar-auth">
-            @guest
-                <a class="nav-link" href="{{ route('login') }}">Login</a>
-                <a class="nav-link" href="{{ route('register') }}">Signup</a>
-            @else
-                <!-- Display user name or dropdown menu for logged-in users -->
-                <span>Hello, {{ Auth::user()->name }}</span>
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button type="submit">Logout</button>
-                </form>
-            @endguest
-        </div>
     </nav>
 
     <!-- Page content -->
     <div class="container">
-        <h1>Welcome to Your Website</h1>
-        <!-- Add more content here -->
+        <h1>Contact Us</h1>
+
+        <p>Office Location: Your Address Here</p>
+        <p>Contact Number: +1 234 567 890</p>
+        <p>Fax: +1 234 567 891</p>
+
+        <!-- Add more contact information or form if needed -->
     </div>
 
     <!-- Add JavaScript scripts or link to a JS file here -->
