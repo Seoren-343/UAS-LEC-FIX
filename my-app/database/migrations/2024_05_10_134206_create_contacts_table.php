@@ -13,9 +13,6 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('office_num');
-            $table->string('fax');
-            $table->string('location');
             $table->timestamps();
         });
     }

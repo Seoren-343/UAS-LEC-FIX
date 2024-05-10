@@ -33,7 +33,7 @@ class CustomAuthController extends Controller
             }
 
             // You can add custom logic here, such as setting session variables
-            return redirect('/homepage'); // Redirect to dashboard or desired page
+            return redirect('/'); // Redirect to dashboard or desired page
         } else {
             return back()->withErrors(['loginError' => 'Invalid credentials']);
         }
@@ -44,7 +44,7 @@ class CustomAuthController extends Controller
 
         $request->session()->invalidate(); // Invalidate the session
 
-        return redirect('/homepage'); // Redirect to the homepage or desired page after logout
+        return redirect('/'); // Redirect to the homepage or desired page after logout
     }
 
     public function showRegistrationForm()

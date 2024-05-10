@@ -53,8 +53,11 @@
         }
 
         .container {
-            max-width: 1200px;
             padding: 20px;
+        }
+
+        .maincontent {
+            margin-top: 50px;
         }
 
         h1 {
@@ -65,14 +68,12 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Founder</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('category-bus') }}">Category Bus</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Destination</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
         </ul>
         <div class="navbar-auth">
@@ -92,7 +93,9 @@
 
     <!-- Page content -->
     <div class="container">
-        <h1>Welcome to Your Website</h1>
+        <div class="maincontent">
+            <h1>Welcome to Your Website</h1>
+        </div>
         <!-- Add more content here -->
     </div>
 

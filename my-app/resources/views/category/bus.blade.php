@@ -1,5 +1,3 @@
-<!-- resources/views/category/bus.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,29 +6,67 @@
     <title>Category Bus</title>
     <!-- Add CSS stylesheets or link to a CSS file here -->
     <style>
-        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 50px auto 20px; /* Added margin-top for content */
             padding: 20px;
         }
-        .card {
+
+        h1 {
             margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-        }
-        .card-body {
-            text-align: center;
         }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">Your Website</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Founder</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('category-bus') }}">Category Bus</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Category Bus</h1>
 
