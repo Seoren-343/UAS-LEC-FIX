@@ -18,12 +18,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/category-bus', [BusController::class, 'categoryBus'])->name('category.bus');
     Route::get('/contacts', [ContactController::class, 'contacts'])->name('contactFol.contacts');
     // Route group for admin-accessible contact management
-    Route::middleware(['admin'])->group(function () {
         Route::get('/contacts/edit/{contact}', [ContactController::class, 'edit'])->name('contactFol.contactedit');
         Route::put('/contacts/update/{contact}', [ContactController::class, 'update'])->name('contactFol.update');
         Route::get('/contacts/create', [ContactController::class, 'create'])->name('contactFol.contactcreate');
         Route::post('/contacts/store', [ContactController::class, 'store'])->name('contactsFol.contactstore');
         Route::delete('/contacts/delete/{contact}', [ContactController::class, 'destroy'])->name('contactFol.delete');
-    });
 });
 
