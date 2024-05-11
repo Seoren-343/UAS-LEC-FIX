@@ -84,7 +84,9 @@
                     <th>Office Number</th>
                     <th>Fax</th>
                     <th>Location</th>
-                    <th>Actions</th>
+                    @if(Auth::user()->isAdmin())
+                        <th>Actions</th>
+                    @endif
                 </tr>
             </thead>
             <tbody>
@@ -95,17 +97,24 @@
                         <td>{{ $contact->fax }}</td>
                         <td>{{ $contact->location }}</td>
                         <td>
-                            <a href="{{ route('contactFol.contactedit', $contact->id) }}" class="btn btn-primary">Edit</a>
-                            <form action="{{ route('contactFol.contacts', $contact->id) }}" method="POST" style="display: inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</button>
-                            </form>
+                            @if(Auth::user()->isAdmin())
+                                <a href="{{ route('contactFol.contactedit', $contact->id) }}" class="btn btn-primary">Edit</a>
+                                <form action="{{ route('contactFol.contacts', $contact->id) }}" method="POST" style="display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</button>
+                                </form>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+         <!-- Add button to create contact for admins -->
+        @if(Auth::user()->isAdmin())
+            <a href="{{ route('contactFol.contactcreate') }}" class="btn btn-success">Create Contact</a>
+        @endif
+    </div>
     </div>
 
     <!-- Add JavaScript scripts or link to a JS file here -->
