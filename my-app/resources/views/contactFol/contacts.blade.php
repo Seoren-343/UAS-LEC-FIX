@@ -57,7 +57,7 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <a class="navbar-brand" href="#">Your Website</a>
+        <a class="navbar-brand" href="#">Contacts</a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Founder</a></li>
