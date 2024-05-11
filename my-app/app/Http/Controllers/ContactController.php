@@ -10,7 +10,7 @@ class ContactController extends Controller
 
     public function contacts()
     {
-        $contacts = Contact::all(); // Fetch all contacts
+        $contacts = Contact::all();
         return view('contactFol.contacts', ['contacts' => $contacts]);
     }
 
