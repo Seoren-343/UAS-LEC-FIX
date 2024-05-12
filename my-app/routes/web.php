@@ -15,7 +15,7 @@ Route::post('/register', 'App\Http\Controllers\CustomAuthController@register');
 Route::post('/logout', 'App\Http\Controllers\CustomAuthController@logout')->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/category-bus', [BusController::class, 'categoryBus'])->name('category.bus');
+    Route::get('/category-bus', [BusController::class, 'categoryBus'])->name('busFol.bus');
     Route::get('/contacts', [ContactController::class, 'contacts'])->name('contactFol.contacts');
     Route::get('/contacts/edit/{contact}', [ContactController::class, 'edit'])->name('contactFol.contactedit');
     Route::put('/contacts/update/{contact}', [ContactController::class, 'update'])->name('contactFol.update');
