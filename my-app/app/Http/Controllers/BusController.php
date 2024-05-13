@@ -25,7 +25,7 @@ class BusController extends Controller
     public function update(Request $request, Bus $bus)
     {
         $request->validate([
-            'bus_picture' => 'required|image|mimes:jpeg,png,jpg,gif',
+            'bus_picture' => 'image|mimes:jpeg,png,jpg,gif',
             'bus_type' => 'required|string',
             'specs' => 'required|string',
         ]);

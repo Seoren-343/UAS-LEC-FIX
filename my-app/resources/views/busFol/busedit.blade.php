@@ -24,11 +24,6 @@
         <form action="{{ route('busFol.update', $bus->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="form-group">
-                <label for="bus_picture">Bus Picture URL:</label>
-                <input type="text" id="bus_picture" name="bus_picture" class="form-control" value="{{ $bus->bus_picture }}" required>
-            </div>
-            
             <!-- New Picture Upload -->
             <div class="form-group">
                 <label for="new_bus_picture">New Bus Picture:</label>
