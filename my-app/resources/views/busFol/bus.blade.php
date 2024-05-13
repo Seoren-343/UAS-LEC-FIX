@@ -90,6 +90,7 @@
                 <h3>{{ $bus->bus_type }}</h3>
                 <p>{{ $bus->specs }}</p>
                 <!-- Edit and Delete buttons -->
+                @if(Auth::user()->isAdmin())
                 <div class="btn-group">
                     <a class="btn btn-primary" href="{{ route('busFol.busedit', ['id' => $bus->id]) }}">Edit Bus</a>
                     <!-- Delete form -->
@@ -99,6 +100,7 @@
                         <button type="submit" class="btn btn-danger">Delete Bus</button>
                     </form>
                 </div>
+                @endif
             </div>
         </div>
         @endforeach
