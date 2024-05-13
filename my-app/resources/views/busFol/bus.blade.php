@@ -83,35 +83,37 @@
             <button type="button" class="btn btn-primary" onclick="filterBuses('medium bus')">Medium Bus</button>
             <button type="button" class="btn btn-primary" onclick="filterBuses('small bus')">Small Bus</button>
         </div>
-
         @foreach ($buses as $bus)
-    <div class="card" id="bus{{ $bus->id }}" style="display: none;">
-        <img src="{{ $bus->bus_picture }}" alt="{{ $bus->bus_type }}">
-        <div class="card-body">
-            <h3>{{ $bus->bus_type }}</h3>
-            <p>{{ $bus->specs }}</p>
-            <!-- Edit and Delete buttons -->
-            <div class="btn-group">
-                <a class="btn btn-primary" href="{{ route('busFol.busedit', ['id' => $bus->id]) }}">Edit Bus</a>
-                <!-- Change '1' to a valid bus ID -->
-                <a class="btn btn-primary" href="{{ url('busFol.busdelete', ['id' => $bus->id]) }}">Delete Bus</a>
+        <div class="card" id="bus{{ $bus->id }}" style="display: none;">
+            <img src="{{ $bus->bus_picture }}" alt="{{ $bus->bus_type }}">
+            <div class="card-body">
+                <h3>{{ $bus->bus_type }}</h3>
+                <p>{{ $bus->specs }}</p>
+                <!-- Edit and Delete buttons -->
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="{{ route('busFol.busedit', ['id' => $bus->id]) }}">Edit Bus</a>
+                    <!-- Delete form -->
+                    <form id="delete-form-{{ $bus->id }}" action="{{ route('busFol.delete', ['bus' => $bus->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete Bus</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-@endforeach
-
-    <script>
-        function filterBuses(busType) {
-        const buses = document.querySelectorAll('.card');
-        buses.forEach(bus => {
-            // Check if the bus matches the selected bus type
-            if (bus.querySelector('img').alt === busType) {
-                bus.style.display = 'block';  // Show the bus
-            } else {
-                bus.style.display = 'none';  // Hide the bus
+        @endforeach
+        <script>
+            function filterBuses(busType) {
+                const buses = document.querySelectorAll('.card');
+                buses.forEach(bus => {
+                    // Check if the bus matches the selected bus type
+                    if (bus.querySelector('img').alt === busType) {
+                        bus.style.display = 'block';  // Show the bus
+                    } else {
+                        bus.style.display = 'none';  // Hide the bus
+                    }
+                });
             }
-        });
-    }
-    </script>
-</body>
+        </script>
+    </body>
 </html>

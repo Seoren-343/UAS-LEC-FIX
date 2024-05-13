@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/bus/store', [BusController::class, 'store'])->name('bus.store');
     Route::get('/bus/edit/{id}', [BusController::class, 'edit'])->name('busFol.busedit');
     Route::put('/bus/update/{id}', [BusController::class, 'update'])->name('busFol.update');
-    Route::delete('/bus/delete/{id}', [BusController::class, 'destroy'])->name('busFol.delete');
+    Route::delete('/bus/delete/{bus}', [BusController::class, 'destroy'])->name('busFol.delete');
     //Contacts Routing
     Route::get('/contacts', [ContactController::class, 'contacts'])->name('contactFol.contacts');
     Route::get('/contacts/edit/{contact}', [ContactController::class, 'edit'])->name('contactFol.contactedit');
