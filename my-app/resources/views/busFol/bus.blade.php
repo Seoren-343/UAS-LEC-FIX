@@ -69,11 +69,26 @@
     </nav>
     <div class="container">
         <h1>Category Bus</h1>
+        <!-- Bus type filter buttons -->
+        @auth
+            @if(Auth::user()->isAdmin())
+                <!-- Admin actions -->
+                <div class="navbar-admin">
+                    <a class="btn btn-primary" href="{{ url('busFol.buscreate') }}">Add Bus</a>
+                    <a class="btn btn-primary" href="{{ url('busFol.busedit') }}">Edit Bus</a>
+                    <!-- <a class="nav-link" href="{{ url('bus/delete') }}">Delete Bus</a> -->
+                </div>
+            @endif
+        @endauth
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" onclick="filterBuses('big')">Big Bus</button>
+            <button type="button" class="btn btn-primary" onclick="filterBuses('medium')">Medium Bus</button>
+            <button type="button" class="btn btn-primary" onclick="filterBuses('small')">Small Bus</button>
+        </div>
 
         @foreach ($buses as $bus)
-            <div class="card">
+            <div class="card" id="bus{{ $bus->id }}" style="display: none;">
                 <img src="{{ $bus->bus_picture }}" alt="{{ $bus->bus_type }}">
-
                 <div class="card-body">
                     <h3>{{ $bus->bus_type }}</h3>
                     <p>{{ $bus->specs }}</p>
@@ -81,5 +96,19 @@
             </div>
         @endforeach
     </div>
+
+    <script>
+        function filterBuses(busType) {
+            const buses = document.querySelectorAll('.card');
+            buses.forEach(bus => {
+                bus.style.display = 'none';
+            });
+
+            const selectedBuses = document.querySelectorAll(`#bus${busType}`);
+            selectedBuses.forEach(bus => {
+                bus.style.display = 'block';
+            });
+        }
+    </script>
 </body>
 </html>

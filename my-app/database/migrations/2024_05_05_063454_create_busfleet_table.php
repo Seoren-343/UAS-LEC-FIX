@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('busfleet', function (Blueprint $table) {
             $table->id();
-            $table->binary('bus_picture')->nullable();
-            $table->string('bus_type');
+            $table->string('bus_picture')->nullable();
+            $table->enum('bus_type', ['big bus', 'medium bus', 'small bus']);
             $table->string('specs');
             $table->timestamps();
         });
