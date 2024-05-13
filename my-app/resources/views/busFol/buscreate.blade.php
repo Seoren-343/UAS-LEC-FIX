@@ -31,27 +31,27 @@
         @endif
 
         <!-- Bus creation form -->
-        <form action="{{ route('busFol.store') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="bus_picture">Bus Picture URL:</label>
-                <input type="text" id="bus_picture" name="bus_picture" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="bus_type">Bus Type:</label>
-                <select id="bus_type" name="bus_type" class="form-control" required>
-                    <option value="big bus">Big Bus</option>
-                    <option value="medium bus">Medium Bus</option>
-                    <option value="small bus">Small Bus</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="specs">Specifications:</label>
-                <textarea id="specs" name="specs" class="form-control" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Create Bus</button>
-        </form>
+        <form action="{{ route('bus.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="form-group">
+        <label for="bus_picture">Bus Picture:</label>
+        <input type="file" id="bus_picture" name="bus_picture" class="form-control-file" accept="image/*" required>
     </div>
+    <div class="form-group">
+        <label for="bus_type">Bus Type:</label>
+        <select id="bus_type" name="bus_type" class="form-control" required>
+            <option value="big bus">Big Bus</option>
+            <option value="medium bus">Medium Bus</option>
+            <option value="small bus">Small Bus</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="specs">Specifications:</label>
+        <textarea id="specs" name="specs" class="form-control" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Bus</button>
+</form>
+
 
     <!-- Add JavaScript scripts or link to a JS file here -->
 </body>

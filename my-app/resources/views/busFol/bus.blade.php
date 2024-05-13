@@ -74,41 +74,44 @@
             @if(Auth::user()->isAdmin())
                 <!-- Admin actions -->
                 <div class="navbar-admin">
-                    <a class="btn btn-primary" href="{{ url('busFol.buscreate') }}">Add Bus</a>
-                    <a class="btn btn-primary" href="{{ url('busFol.busedit') }}">Edit Bus</a>
-                    <!-- <a class="nav-link" href="{{ url('bus/delete') }}">Delete Bus</a> -->
+                    <a class="btn btn-success" href="{{ route('busFol.buscreate') }}">Add Bus</a>
                 </div>
             @endif
         @endauth
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary" onclick="filterBuses('big')">Big Bus</button>
-            <button type="button" class="btn btn-primary" onclick="filterBuses('medium')">Medium Bus</button>
-            <button type="button" class="btn btn-primary" onclick="filterBuses('small')">Small Bus</button>
+            <button type="button" class="btn btn-primary" onclick="filterBuses('big bus')">Big Bus</button>
+            <button type="button" class="btn btn-primary" onclick="filterBuses('medium bus')">Medium Bus</button>
+            <button type="button" class="btn btn-primary" onclick="filterBuses('small bus')">Small Bus</button>
         </div>
 
         @foreach ($buses as $bus)
-            <div class="card" id="bus{{ $bus->id }}" style="display: none;">
-                <img src="{{ $bus->bus_picture }}" alt="{{ $bus->bus_type }}">
-                <div class="card-body">
-                    <h3>{{ $bus->bus_type }}</h3>
-                    <p>{{ $bus->specs }}</p>
-                </div>
+    <div class="card" id="bus{{ $bus->id }}" style="display: none;">
+        <img src="{{ $bus->bus_picture }}" alt="{{ $bus->bus_type }}">
+        <div class="card-body">
+            <h3>{{ $bus->bus_type }}</h3>
+            <p>{{ $bus->specs }}</p>
+            <!-- Edit and Delete buttons -->
+            <div class="btn-group">
+                <a class="btn btn-primary" href="{{ route('busFol.busedit', ['id' => $bus->id]) }}">Edit Bus</a>
+                <!-- Change '1' to a valid bus ID -->
+                <a class="btn btn-primary" href="{{ url('busFol.busdelete', ['id' => $bus->id]) }}">Delete Bus</a>
             </div>
-        @endforeach
+        </div>
     </div>
+@endforeach
 
     <script>
         function filterBuses(busType) {
-            const buses = document.querySelectorAll('.card');
-            buses.forEach(bus => {
-                bus.style.display = 'none';
-            });
-
-            const selectedBuses = document.querySelectorAll(`#bus${busType}`);
-            selectedBuses.forEach(bus => {
-                bus.style.display = 'block';
-            });
-        }
+        const buses = document.querySelectorAll('.card');
+        buses.forEach(bus => {
+            // Check if the bus matches the selected bus type
+            if (bus.querySelector('img').alt === busType) {
+                bus.style.display = 'block';  // Show the bus
+            } else {
+                bus.style.display = 'none';  // Hide the bus
+            }
+        });
+    }
     </script>
 </body>
 </html>
