@@ -7,16 +7,105 @@
     <title>Login</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
-        /* Your custom styles for the login page */
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #f0f0f0;
+            background: url('your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
         }
-        /* Additional styles as needed */
+
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .card {
+            background: transparent;
+            border: none;
+        }
+
+        .card-header {
+            background: rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .card-body {
+            color: #fff;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: none;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-link {
+            color: #007bff;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .invalid-feedback {
+            color: #ff6b6b;
+        }
+
+        .form-check-label {
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -98,3 +187,5 @@
     </div>
 </body>
 </html>
+
+

@@ -34,12 +34,6 @@
                 </div>
             </div>
 
-            <!-- New Picture Upload -->
-            <div class="form-group">
-                <label for="new_bus_picture">New Bus Picture (optional):</label>
-                <input type="file" id="new_bus_picture" name="new_bus_picture" class="form-control-file">
-            </div>
-
             <!-- Add Additional Images -->
             <div class="form-group">
                 <label for="additional_images">Add Additional Images:</label>

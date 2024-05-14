@@ -88,15 +88,8 @@
             <div class="card-body">
                 <!-- Main Bus Image -->
                 <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
-                
-                <!-- Additional Images -->
-                @foreach ($bus->additional_images as $image)
-                    <img src="{{ asset($image->image_path) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
-                @endforeach
-                
                 <h3>{{ $bus->bus_type }}</h3>
                 <p>{{ $bus->specs }}</p>
-                
                 <!-- Edit and Delete buttons -->
                 <div class="btn-group">
                     <a class="btn btn-primary" href="{{ route('busFol.busedit', ['id' => $bus->id]) }}">Edit Bus</a>
