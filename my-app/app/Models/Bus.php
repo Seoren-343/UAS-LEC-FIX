@@ -14,4 +14,9 @@ class Bus extends Model
         'bus_type',
         'specs',
     ];
+
+    public function additional_images()
+    {
+        return $this->hasMany(BusImage::class);
+    }
 }

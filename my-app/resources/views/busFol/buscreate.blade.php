@@ -29,7 +29,6 @@
                 </ul>
             </div>
         @endif
-
         <!-- Bus creation form -->
         <form action="{{ route('bus.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -51,6 +50,6 @@
             </div>
             <button type="submit" class="btn btn-primary">Create Bus</button>
         </form>
-    <!-- Add JavaScript scripts or link to a JS file here -->
+        <!-- Add JavaScript scripts or link to a JS file here -->
 </body>
 </html>

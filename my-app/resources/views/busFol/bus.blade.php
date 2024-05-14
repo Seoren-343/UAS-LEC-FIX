@@ -84,23 +84,28 @@
             <button type="button" class="btn btn-primary" onclick="filterBuses('small bus')">Small Bus</button>
         </div>
         @foreach ($buses as $bus)
-        <div class="card" id="bus{{ $bus->id }}" style="display: none;">
-            <img src="{{ $bus->bus_picture }}" alt="{{ $bus->bus_type }}">
+        <div class="card mt-4" id="bus{{ $bus->id }}">
             <div class="card-body">
+                <!-- Main Bus Image -->
+                <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
+                
+                <!-- Additional Images -->
+                @foreach ($bus->additional_images as $image)
+                    <img src="{{ asset($image->image_path) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
+                @endforeach
+                
                 <h3>{{ $bus->bus_type }}</h3>
                 <p>{{ $bus->specs }}</p>
+                
                 <!-- Edit and Delete buttons -->
-                @if(Auth::user()->isAdmin())
                 <div class="btn-group">
                     <a class="btn btn-primary" href="{{ route('busFol.busedit', ['id' => $bus->id]) }}">Edit Bus</a>
-                    <!-- Delete form -->
-                    <form id="delete-form-{{ $bus->id }}" action="{{ route('busFol.delete', ['bus' => $bus->id]) }}" method="POST">
+                    <form action="{{ route('busFol.delete', ['id' => $bus->id]) }}" method="POST" id="delete-form-{{ $bus->id }}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete Bus</button>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this bus?')">Delete Bus</button>
                     </form>
                 </div>
-                @endif
             </div>
         </div>
         @endforeach
