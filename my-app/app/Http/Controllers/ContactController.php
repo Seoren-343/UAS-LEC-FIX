@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
-use Illuminate\Support\Facades\Auth;
+
 class ContactController extends Controller
 {
-
     public function contacts()
     {
         $contacts = Contact::all();
         return view('contactFol.contacts', ['contacts' => $contacts]);
     }
+    
+    
 
-    public function edit(Contact $contact)
-    {
-        return view('contactFol.contactedit', ['contact' => $contact]);
+    public function edit(Contact $contact) {
+        $contacts = Contact::all(); // Fetch all contacts
+        return view('contactFol.contactedit', compact('contact', 'contacts'));
     }
 
     public function update(Request $request, Contact $contact)
@@ -26,10 +27,16 @@ class ContactController extends Controller
             'fax' => 'required',
             'location' => 'required',
         ]);
-
-        $contact->update($request->all());
-        return redirect()->route('contactFol.contact')->with('success', 'Contact updated successfully');
+    
+        $contact->update([
+            'office_num' => $request->office_num,
+            'fax' => $request->fax,
+            'location' => $request->location,
+        ]);
+    
+        return redirect()->route('contactFol.contacts')->with('success', 'Contact updated successfully');
     }
+    
 
     public function create()
     {

@@ -52,6 +52,54 @@
         h1 {
             margin-bottom: 20px;
         }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.25rem;
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-danger {
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-success {
+            color: #fff;
+            background-color: #28a745;
+            border-color: #28a745;
+        }
     </style>
 </head>
 <body>
@@ -96,25 +144,24 @@
                         <td>{{ $contact->office_num }}</td>
                         <td>{{ $contact->fax }}</td>
                         <td>{{ $contact->location }}</td>
-                        <td>
-                            @if(Auth::user()->isAdmin())
+                        @if(Auth::user()->isAdmin())
+                            <td>
                                 <a href="{{ route('contactFol.contactedit', $contact->id) }}" class="btn btn-primary">Edit</a>
-                                <form action="{{ route('contactFol.contacts', $contact->id) }}" method="POST" style="display: inline-block;">
+                                <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</button>
                                 </form>
-                            @endif
-                        </td>
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>
         </table>
-         <!-- Add button to create contact for admins -->
+        <!-- Add button to create contact for admins -->
         @if(Auth::user()->isAdmin())
             <a href="{{ route('contactFol.contactcreate') }}" class="btn btn-success">Create Contact</a>
         @endif
-    </div>
     </div>
 
     <!-- Add JavaScript scripts or link to a JS file here -->
