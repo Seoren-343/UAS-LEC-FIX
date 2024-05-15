@@ -97,5 +97,15 @@ class BusController extends Controller
         $bus->delete();
         return redirect()->route('busFol.bus')->with('success', 'Bus deleted successfully');
     }
+    public function show($id)
+{
+    // Fetch bus data for the specified ID using the Bus model
+    $bus = Bus::findOrFail($id);
+    
+    // Pass the data to the show view
+    return view('busFol.busshow', ['bus' => $bus]);
 }
+
+}
+
 

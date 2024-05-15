@@ -45,12 +45,32 @@
 
         .container {
             max-width: 1200px;
-            margin: 50px auto 20px; /* Added margin-top for content */
+            margin: 50px auto 20px;
             padding: 20px;
         }
 
         h1 {
             margin-bottom: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none; /* Initially hide all cards */
+        }
+
+        .card img {
+            max-width: 200px;
+        }
+
+        .btn-group {
+            margin-top: 10px;
+        }
+
+        .btn-group button,
+        .btn-group a {
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -84,36 +104,45 @@
             <button type="button" class="btn btn-primary" onclick="filterBuses('small bus')">Small Bus</button>
         </div>
         @foreach ($buses as $bus)
-        <div class="card mt-4" id="bus{{ $bus->id }}">
-            <div class="card-body">
-                <!-- Main Bus Image -->
-                <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
-                <h3>{{ $bus->bus_type }}</h3>
-                <p>{{ $bus->specs }}</p>
-                <!-- Edit and Delete buttons -->
-                <div class="btn-group">
-                    <a class="btn btn-primary" href="{{ route('busFol.busedit', ['id' => $bus->id]) }}">Edit Bus</a>
-                    <form action="{{ route('busFol.delete', ['id' => $bus->id]) }}" method="POST" id="delete-form-{{ $bus->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this bus?')">Delete Bus</button>
-                    </form>
+            <div class="card mt-4" id="bus{{ $bus->id }}">
+                <div class="card-body">
+                    <!-- Main Bus Image -->
+                    <a href="{{ route('busFol.busshow', ['id' => $bus->id]) }}">
+                        <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
+                    </a>
+                    <a href="{{ route('busFol.busshow', ['id' => $bus->id]) }}">
+                        <h3>{{ $bus->bus_type }}</h3>
+                    </a>
+                    <p>{{ $bus->specs }}</p>
+                    <!-- Edit and Delete buttons for admins only -->
+                    @auth
+                        @if(Auth::user()->isAdmin())
+                            <div class="btn-group">
+                                <a class="btn btn-primary" href="{{ route('busFol.busedit', ['id' => $bus->id]) }}">Edit Bus</a>
+                                <form action="{{ route('busFol.delete', ['id' => $bus->id]) }}" method="POST" id="delete-form-{{ $bus->id }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this bus?')">Delete Bus</button>
+                                </form>
+                            </div>
+                        @endif
+                    @endauth
                 </div>
             </div>
-        </div>
         @endforeach
-        <script>
-            function filterBuses(busType) {
-                const buses = document.querySelectorAll('.card');
-                buses.forEach(bus => {
-                    // Check if the bus matches the selected bus type
-                    if (bus.querySelector('img').alt === busType) {
-                        bus.style.display = 'block';  // Show the bus
-                    } else {
-                        bus.style.display = 'none';  // Hide the bus
-                    }
-                });
-            }
-        </script>
-    </body>
+    </div>
+    <script>
+        function filterBuses(busType) {
+            const buses = document.querySelectorAll('.card');
+            buses.forEach(bus => {
+                // Check if the bus matches the selected bus type
+                if (bus.querySelector('img').alt === busType) {
+                    bus.style.display = 'block';  // Show the bus
+                } else {
+                    bus.style.display = 'none';  // Hide the bus
+                }
+            });
+        }
+    </script>
+</body>
 </html>
