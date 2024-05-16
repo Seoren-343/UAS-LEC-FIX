@@ -108,10 +108,10 @@
         <a class="navbar-brand" href="#">Contacts</a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Founder</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('founders') }}">Founder</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('category-bus') }}">Category Bus</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('aboutUs') }}">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
         </ul>
     </nav>

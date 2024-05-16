@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FounderController;
 
 Route::get('/', function () {
     return view('homepage.index');
@@ -26,6 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 // Bus details page for non-admin users
 Route::get('/bus/{id}', [BusController::class, 'show'])->name('busFol.busshow');
+Route::get('/founders', [FounderController::class, 'founder'])->name('homepage.founder');
+Route::get('/aboutUs', [AboutUsController::class, 'aboutus'])->name('homepage.aboutus');
 
 // Contacts Routing
 Route::group(['middleware' => 'auth'], function () {
