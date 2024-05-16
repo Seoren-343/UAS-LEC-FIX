@@ -3,21 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Register</title>
-
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-    <!-- Styles -->
-    <style>
-        /* Your custom styles for the register page */
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #f0f0f0;
-        }
-        /* Additional styles as needed */
-    </style>
+    <link href="{{ asset('css/register.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="container">

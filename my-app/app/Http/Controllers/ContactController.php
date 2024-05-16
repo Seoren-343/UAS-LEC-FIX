@@ -28,11 +28,7 @@ class ContactController extends Controller
             'location' => 'required',
         ]);
     
-        $contact->update([
-            'office_num' => $request->office_num,
-            'fax' => $request->fax,
-            'location' => $request->location,
-        ]);
+        $contact->update($request->all());
     
         return redirect()->route('contactFol.contacts')->with('success', 'Contact updated successfully');
     }

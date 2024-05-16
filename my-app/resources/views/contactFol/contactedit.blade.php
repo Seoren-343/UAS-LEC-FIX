@@ -39,26 +39,23 @@
             @foreach($contacts as $contact)
                 <tr>
                     <td>{{ $contact->id }}</td>
-                    <td>
-                        <!-- Office Number Edit -->
-                        <input type="text" name="office_num_{{ $contact->id }}" value="{{ $contact->office_num }}">
-                    </td>
-                    <td>
-                        <!-- Fax Edit -->
-                        <input type="text" name="fax_{{ $contact->id }}" value="{{ $contact->fax }}">
-                    </td>
-                    <td>
-                        <!-- Location Edit -->
-                        <input type="text" name="location_{{ $contact->id }}" value="{{ $contact->location }}">
-                    </td>
-                    <td>
-                        <!-- Edit Button -->
-                        <form action="{{ route('contactFol.contactupdate', $contact->id) }}" method="POST" style="display: inline-block;">
-                            @csrf
-                            @method('PUT')
+                    <form action="{{ route('contactFol.contactupdate', $contact->id) }}" method="POST" style="display: inline-block;">
+                        @csrf
+                        @method('PUT')
+                        <td>
+                            <input type="text" name="office_num" value="{{ $contact->office_num }}" class="form-control">
+                        </td>
+                        <td>
+                            <input type="text" name="fax" value="{{ $contact->fax }}" class="form-control">
+                        </td>
+                        <td>
+                            <input type="text" name="location" value="{{ $contact->location }}" class="form-control">
+                        </td>
+                        <td>
                             <button type="submit" class="btn btn-primary">Save</button>
-                        </form>
-                        <!-- Delete Button -->
+                        </td>
+                    </form>
+                    <td>
                         <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
