@@ -16,7 +16,7 @@ class ContactController extends Controller
     
 
     public function edit(Contact $contact) {
-        $contacts = Contact::all(); // Fetch all contacts
+        $contacts = Contact::all();
         return view('contactFol.contactedit', compact('contact', 'contacts'));
     }
 

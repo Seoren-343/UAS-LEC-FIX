@@ -58,7 +58,7 @@
             border: 1px solid #ddd;
             padding: 20px;
             margin-bottom: 20px;
-            display: none; /* Initially hide all cards */
+            display: none;
         }
 
         .card img {
@@ -76,7 +76,6 @@
     </style>
 </head>
 <body>
-        <!-- Navbar -->
         <nav class="navbar">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
@@ -90,8 +89,6 @@
     </nav>
     <div class="container">
         <h1>Edit Bus</h1>
-
-        <!-- Display validation errors if any -->
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -101,26 +98,19 @@
                 </ul>
             </div>
         @endif
-
-        <!-- Bus edit form -->
         <form action="{{ route('busFol.update', $bus->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-
-            <!-- Current Bus Picture -->
             <div class="form-group">
                 <label for="current_bus_picture">Current Bus Picture:</label>
                 <div>
                     <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
                 </div>
             </div>
-
-            <!-- Add Additional Images -->
             <div class="form-group">
                 <label for="additional_images">Add Additional Images:</label>
                 <input type="file" id="additional_images" name="additional_images[]" class="form-control-file" multiple>
             </div>
-            
             <div class="form-group">
                 <label for="bus_type">Bus Type:</label>
                 <input type="text" id="bus_type" name="bus_type" class="form-control" value="{{ $bus->bus_type }}" required>

@@ -57,7 +57,7 @@
             border: 1px solid #ddd;
             padding: 20px;
             margin-bottom: 20px;
-            display: none; /* Initially hide all cards */
+            display: none;
         }
 
         .card img {
@@ -88,8 +88,6 @@
     </nav>
     <div class="container">
         <h1>Edit Contact</h1>
-
-        <!-- Display success message if any -->
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif

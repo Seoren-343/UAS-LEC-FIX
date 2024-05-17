@@ -7,7 +7,6 @@
     <link href="{{ asset('css/Home.css') }}" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
@@ -22,7 +21,6 @@
                 <a class="nav-link" href="{{ route('login') }}">Login</a>
                 <a class="nav-link" href="{{ route('register') }}">Signup</a>
             @else
-                <!-- Display user name or dropdown menu for logged-in users -->
                 <span>Hello, {{ Auth::user()->name }}</span>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
@@ -32,14 +30,10 @@
         </div>
     </nav>
 
-    <!-- Page content -->
     <div class="container">
         <div class="maincontent">
             <h1>Welcome to Our Website</h1>
         </div>
-        <!-- Add more content here -->
     </div>
-
-    <!-- Add JavaScript scripts or link to a JS file here -->
 </body>
 </html>

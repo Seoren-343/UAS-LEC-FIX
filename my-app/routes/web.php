@@ -26,7 +26,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/bus/delete/{id}', [BusController::class, 'destroy'])->name('busFol.delete');
 });
 
-// Bus details page for non-admin users
 Route::get('/bus/{id}', [BusController::class, 'show'])->name('busFol.busshow');
 Route::get('/founders', [FounderController::class, 'founder'])->name('homepage.founder');
 Route::get('/aboutUs', [AboutUsController::class, 'aboutus'])->name('homepage.aboutus');

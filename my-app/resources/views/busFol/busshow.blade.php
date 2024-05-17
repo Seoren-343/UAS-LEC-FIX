@@ -57,7 +57,7 @@
             border: 1px solid #ddd;
             padding: 20px;
             margin-bottom: 20px;
-            display: none; /* Initially hide all cards */
+            display: none;
         }
 
         .card img {
@@ -75,12 +75,10 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-            <!-- Add other navbar items as needed -->
         </ul>
     </nav>
 
@@ -89,9 +87,6 @@
         <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
         <h3>{{ $bus->bus_type }}</h3>
         <p>{{ $bus->specs }}</p>
-        <!-- You can add more bus details here -->
     </div>
-
-    <!-- Add JavaScript scripts or link to a JS file here -->
 </body>
 </html>

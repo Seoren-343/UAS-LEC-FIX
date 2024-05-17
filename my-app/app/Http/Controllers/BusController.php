@@ -16,10 +16,8 @@ class BusController extends Controller
 
     public function edit($id)
     {
-        // Fetch bus data for the specified ID using the Bus model
         $bus = Bus::find($id);
         
-        // Pass the data to the edit view
         return view('busFol.busedit', ['bus' => $bus]);
     }
     
@@ -35,20 +33,16 @@ class BusController extends Controller
         ]);
 
         if ($request->hasFile('new_bus_picture')) {
-            // Delete old image if exists
             if ($bus->bus_picture) {
                 Storage::disk('public')->delete($bus->bus_picture);
             }
-            // Store new image
             $path = $request->file('new_bus_picture')->store('bus_pictures', 'public');
             $bus->bus_picture = $path;
         }
 
-        // Handle additional images
         if ($request->hasFile('additional_images')) {
             foreach ($request->file('additional_images') as $additionalImage) {
                 $path = $additionalImage->store('bus_pictures', 'public');
-                // Assuming you have a relationship to save additional images
                 $bus->additional_images()->create(['image_path' => $path]);
             }
         }
@@ -74,7 +68,6 @@ class BusController extends Controller
             'specs' => 'required|string',
         ]);
 
-        // Handle file upload
         if ($request->hasFile('bus_picture')) {
             $file = $request->file('bus_picture');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
@@ -99,10 +92,8 @@ class BusController extends Controller
     }
     public function show($id)
 {
-    // Fetch bus data for the specified ID using the Bus model
     $bus = Bus::findOrFail($id);
     
-    // Pass the data to the show view
     return view('busFol.busshow', ['bus' => $bus]);
 }
 

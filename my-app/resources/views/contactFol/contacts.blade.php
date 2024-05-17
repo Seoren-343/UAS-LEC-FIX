@@ -57,7 +57,7 @@
             border: 1px solid #ddd;
             padding: 20px;
             margin-bottom: 20px;
-            display: none; /* Initially hide all cards */
+            display: none;
         }
 
         .card img {
@@ -75,7 +75,6 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Contacts</a>
         <ul class="navbar-nav">
@@ -87,12 +86,8 @@
             <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
         </ul>
     </nav>
-
-    <!-- Page content -->
     <div class="container">
         <h1>Contacts</h1>
-
-        <!-- Display success message if any -->
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
@@ -130,12 +125,9 @@
                 @endforeach
             </tbody>
         </table>
-        <!-- Add button to create contact for admins -->
         @if(Auth::user()->isAdmin())
             <a href="{{ route('contactFol.contactcreate') }}" class="btn btn-success">Create Contact</a>
         @endif
     </div>
-
-    <!-- Add JavaScript scripts or link to a JS file here -->
 </body>
 </html>

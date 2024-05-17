@@ -21,7 +21,6 @@
                 <a class="nav-link" href="{{ route('login') }}">Login</a>
                 <a class="nav-link" href="{{ route('register') }}">Signup</a>
             @else
-                <!-- Display user name or dropdown menu for logged-in users -->
                 <span>Hello, {{ Auth::user()->name }}</span>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
@@ -30,6 +29,5 @@
             @endguest
         </div>
     </nav>
-    SUDARMADI
 </body>
 </html>

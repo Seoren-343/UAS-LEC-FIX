@@ -57,7 +57,7 @@
             border: 1px solid #ddd;
             padding: 20px;
             margin-bottom: 20px;
-            display: none; /* Initially hide all cards */
+            display: none;
         }
 
         .card img {
@@ -75,7 +75,6 @@
     </style>
 </head>
 <body>
-        <!-- Navbar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
@@ -89,10 +88,8 @@
     </nav>
     <div class="container">
         <h1>Category Bus</h1>
-        <!-- Bus type filter buttons -->
         @auth
             @if(Auth::user()->isAdmin())
-                <!-- Admin actions -->
                 <div class="navbar-admin">
                     <a class="btn btn-success" href="{{ route('busFol.buscreate') }}">Add Bus</a>
                 </div>
@@ -106,7 +103,6 @@
         @foreach ($buses as $bus)
             <div class="card mt-4" id="bus{{ $bus->id }}">
                 <div class="card-body">
-                    <!-- Main Bus Image -->
                     <a href="{{ route('busFol.busshow', ['id' => $bus->id]) }}">
                         <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
                     </a>
@@ -114,7 +110,6 @@
                         <h3>{{ $bus->bus_type }}</h3>
                     </a>
                     <p>{{ $bus->specs }}</p>
-                    <!-- Edit and Delete buttons for admins only -->
                     @auth
                         @if(Auth::user()->isAdmin())
                             <div class="btn-group">
@@ -135,11 +130,10 @@
         function filterBuses(busType) {
             const buses = document.querySelectorAll('.card');
             buses.forEach(bus => {
-                // Check if the bus matches the selected bus type
                 if (bus.querySelector('img').alt === busType) {
-                    bus.style.display = 'block';  // Show the bus
+                    bus.style.display = 'block';
                 } else {
-                    bus.style.display = 'none';  // Hide the bus
+                    bus.style.display = 'none';
                 }
             });
         }

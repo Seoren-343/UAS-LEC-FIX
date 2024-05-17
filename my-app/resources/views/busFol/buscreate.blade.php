@@ -57,7 +57,7 @@
             border: 1px solid #ddd;
             padding: 20px;
             margin-bottom: 20px;
-            display: none; /* Initially hide all cards */
+            display: none;
         }
 
         .card img {
@@ -75,7 +75,6 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
@@ -90,8 +89,6 @@
 
     <div class="container">
         <h1>Create New Bus Entry</h1>
-
-        <!-- Display validation errors if any -->
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -101,7 +98,6 @@
                 </ul>
             </div>
         @endif
-        <!-- Bus creation form -->
         <form action="{{ route('bus.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
@@ -122,6 +118,5 @@
             </div>
             <button type="submit" class="btn btn-primary">Create Bus</button>
         </form>
-        <!-- Add JavaScript scripts or link to a JS file here -->
 </body>
 </html>

@@ -15,19 +15,15 @@ class CustomAuthController extends Controller
 
     public function login(Request $request)
     {
-        // Validate the login request
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Attempt to authenticate the user
         if (Auth::attempt($credentials)) {
-            // Authentication successful
             $user = Auth::user();
 
-            // You can add custom logic here, such as setting session variables
-            return redirect('/'); // Redirect to dashboard or desired page
+            return redirect('/');
         } else {
             return back()->withErrors(['loginError' => 'Invalid credentials']);
         }
@@ -35,10 +31,10 @@ class CustomAuthController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::logout(); // Logout the user
-        $request->session()->invalidate(); // Invalidate the session
+        Auth::logout();
+        $request->session()->invalidate();
 
-        return redirect('/'); // Redirect to the homepage or desired page after logout
+        return redirect('/');
     }
 
     public function showRegistrationForm()
@@ -48,25 +44,21 @@ class CustomAuthController extends Controller
 
     public function register(Request $request)
     {
-        // Validate the registration request
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
         ]);
 
-        // Create a new user with the provided data
         $user = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => bcrypt($validatedData['password']),
         ]);
 
-        // Set the user's role based on email (assuming '@Admin.com' means admin)
         $user->role = strpos($validatedData['email'], '@Admin.com') !== false ? 'admin' : 'user';
         $user->save();
 
-        // Redirect to login page after successful registration
         return redirect()->route('login')->with('success', 'Registration successful. Please log in.');
     }
 }
