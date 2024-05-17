@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Details</title>
-    <!-- Add CSS stylesheets or link to a CSS file here -->
+    <link href="{{ asset('css/BusDetails.css') }}" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar -->

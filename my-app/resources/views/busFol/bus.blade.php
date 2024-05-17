@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Bus</title>
-    <!-- Add CSS stylesheets or link to a CSS file here -->
+    <link href="{{ asset('css/bus.css') }}" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -75,7 +75,7 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+        <!-- Navbar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">

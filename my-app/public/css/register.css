@@ -1,92 +1,78 @@
-/* public/css/auth.css */
 body {
     font-family: 'Nunito', sans-serif;
-    background: url('your-background-image.jpg') no-repeat center center fixed;
+    background: url('/Gallery/bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 1);
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .card {
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
-    background: rgba(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
+    background: #6c757d;
+    color: white;
     text-align: center;
-    font-size: 1.75rem;
-    font-weight: 600;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 24px;
 }
 
 .card-body {
-    color: #fff;
+    padding: 20px;
 }
 
 .form-control {
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: #fff;
-}
-
-.form-control:focus {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: none;
-    color: #fff;
+    width: 95%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 .btn-primary {
     background-color: #007bff;
-    border: none;
+    border-color: #007bff;
+    color: white;
     padding: 10px 20px;
-    font-size: 1rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
+    font-size: 16px;
 }
 
 .btn-secondary {
+    color: white;
     background-color: #6c757d;
-    border: none;
+    border-color: #6c757d;
+    text-decoration: none;
     padding: 10px 20px;
-    font-size: 1rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
+    font-size: 16px;
 }
 
 .btn-link {
     color: #007bff;
-    text-decoration: underline;
-    font-weight: 600;
+    text-decoration: none;
+    padding-left: 0;
 }
 
 .invalid-feedback {
-    color: #ff6b6b;
-}
-
-.form-check-label {
-    color: #ccc;
+    color: red;
 }

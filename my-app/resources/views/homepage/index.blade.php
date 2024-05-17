@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Your Website</title>
-    <!-- Add CSS stylesheets or link to a CSS file here -->
+    <title>Welcome to Our Website</title>
+    <link href="{{ asset('css/Home.css') }}" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -94,7 +94,7 @@
     <!-- Page content -->
     <div class="container">
         <div class="maincontent">
-            <h1>Welcome to Your Website</h1>
+            <h1>Welcome to Our Website</h1>
         </div>
         <!-- Add more content here -->
     </div>

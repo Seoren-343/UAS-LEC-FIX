@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Bus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="{{ asset('css/BusEdit.css') }}" rel="stylesheet">
 </head>
 <body>
+        <!-- Navbar -->
+        <nav class="navbar">
+        <a class="navbar-brand" href="#">Your Website</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('founders') }}">Founder</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('category-bus') }}">Category Bus</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('aboutUs') }}">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Edit Bus</h1>
 

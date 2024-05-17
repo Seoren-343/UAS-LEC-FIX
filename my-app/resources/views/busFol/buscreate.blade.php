@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Bus Entry</title>
-    <!-- Add CSS stylesheets or link to a CSS file here -->
+    <link href="{{ asset('css/createbus.css') }}" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
-            <!-- Add other navbar items as needed -->
+            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('founders') }}">Founder</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('category-bus') }}">Category Bus</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('aboutUs') }}">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
         </ul>
     </nav>
 

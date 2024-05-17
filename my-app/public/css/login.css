@@ -1,9 +1,12 @@
 body {
     font-family: 'Nunito', sans-serif;
-    background-image: url('/my-app/public/Gallery/Login.jpeg');
+    background: url('/Gallery/bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 1);
 }
 
 .container {

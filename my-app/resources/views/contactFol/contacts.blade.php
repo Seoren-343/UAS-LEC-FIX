@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <!-- Add CSS stylesheets or link to a CSS file here -->
+    <title>Contacts</title>
+    <link href="{{ asset('css/Contact.css') }}" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,6 +35,7 @@
         }
 
         .nav-item {
+            color: #f2f2f2;
             margin-right: 10px;
         }
 
@@ -50,10 +51,12 @@
         }
 
         h1 {
+            color: #f2f2f2;
             margin-bottom: 20px;
         }
 
         .table {
+            background-color: #f2f2f2;
             width: 100%;
             border-collapse: collapse;
         }

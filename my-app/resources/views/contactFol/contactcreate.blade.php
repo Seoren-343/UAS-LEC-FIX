@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Contact</title>
+    <link href="{{ asset('css/Contact.css') }}" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,10 +50,12 @@
         }
 
         h1 {
+            color: white;
             margin-bottom: 20px;
         }
 
         .form-group {
+            color: white;
             margin-bottom: 15px;
         }
 
