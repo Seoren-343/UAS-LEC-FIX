@@ -5,65 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Our Website</title>
     <link href="{{ asset('css/Home.css') }}" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            position: relative;
-        }
-
-        .navbar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .navbar-brand {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .navbar-nav {
-            display: flex;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-item {
-            margin-right: 10px;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .navbar-auth {
-            margin-left: 10px;
-        }
-
-        .container {
-            padding: 20px;
-        }
-
-        .maincontent {
-            margin-top: 50px;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <body>
     <!-- Navbar -->

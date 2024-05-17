@@ -13,7 +13,7 @@
         }
 
         .navbar {
-            background-color: #333;
+            background-color: #a6a6a6;
             color: #fff;
             padding: 10px;
             display: flex;
@@ -35,7 +35,6 @@
         }
 
         .nav-item {
-            color: #f2f2f2;
             margin-right: 10px;
         }
 
@@ -46,62 +45,32 @@
 
         .container {
             max-width: 1200px;
-            margin: 50px auto 20px; /* Added margin-top for content */
+            margin: 50px auto 20px;
             padding: 20px;
         }
 
         h1 {
-            color: #f2f2f2;
             margin-bottom: 20px;
         }
 
-        .table {
-            background-color: #f2f2f2;
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table th, .table td {
+        .card {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none; /* Initially hide all cards */
         }
 
-        .table th {
-            background-color: #f2f2f2;
-            text-align: left;
+        .card img {
+            max-width: 200px;
         }
 
-        .btn {
-            display: inline-block;
-            font-weight: 400;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            user-select: none;
-            border: 1px solid transparent;
-            padding: 0.375rem 0.75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: 0.25rem;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        .btn-group {
+            margin-top: 10px;
         }
 
-        .btn-primary {
-            color: #fff;
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-
-        .btn-danger {
-            color: #fff;
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-
-        .btn-success {
-            color: #fff;
-            background-color: #28a745;
-            border-color: #28a745;
+        .btn-group button,
+        .btn-group a {
+            margin-right: 10px;
         }
     </style>
 </head>

@@ -13,7 +13,7 @@
         }
 
         .navbar {
-            background-color: #333;
+            background-color: #a6a6a6;
             color: #fff;
             padding: 10px;
             display: flex;
@@ -45,50 +45,32 @@
 
         .container {
             max-width: 1200px;
-            margin: 50px auto;
+            margin: 50px auto 20px;
             padding: 20px;
         }
 
         h1 {
-            color: white;
             margin-bottom: 20px;
         }
 
-        .form-group {
-            color: white;
-            margin-bottom: 15px;
+        .card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none; /* Initially hide all cards */
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
+        .card img {
+            max-width: 200px;
         }
 
-        .form-group input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
+        .btn-group {
+            margin-top: 10px;
         }
 
-        .btn {
-            display: inline-block;
-            font-weight: 400;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            user-select: none;
-            border: 1px solid transparent;
-            padding: 0.375rem 0.75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: 0.25rem;
-            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        }
-
-        .btn-primary {
-            color: #fff;
-            background-color: #007bff;
-            border-color: #007bff;
+        .btn-group button,
+        .btn-group a {
+            margin-right: 10px;
         }
     </style>
 </head>

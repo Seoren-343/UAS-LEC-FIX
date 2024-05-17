@@ -7,7 +7,7 @@ body
     position: relative;
 }
         .navbar {
-            background-color: #333;
+            background-color: #a6a6a6;
             color: #fff;
             padding: 10px;
             display: flex;
@@ -34,8 +34,14 @@ body
         }
 
         .nav-link {
-            color: #fff;
+            color: white;
             text-decoration: none;
+            padding: 8px 16px;
+        }
+
+        .nav-link:hover {
+            background-color: #333;
+            border-radius: 4px;
         }
 
         .container {
