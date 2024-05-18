@@ -1,6 +1,6 @@
 body {
     font-family: 'Nunito', sans-serif;
-    background: url('/Gallery/bg.jpg') no-repeat center center fixed;
+    background: url('/Gallery/BG.png') no-repeat center center fixed;
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -20,13 +20,13 @@ body {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.10);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
-    background: #6c757d;
+    background: #0A6847;
     color: white;
     text-align: center;
     padding: 10px;
@@ -36,6 +36,7 @@ body {
 }
 
 .card-body {
+    color: white;
     padding: 20px;
 }
 
@@ -59,7 +60,7 @@ body {
 
 .btn-secondary {
     color: white;
-    background-color: #6c757d;
+    background-color: #0A6847;
     border-color: #6c757d;
     text-decoration: none;
     padding: 10px 20px;
