@@ -46,16 +46,19 @@ body {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f2f2f2;
+    background: rgba(0, 0, 0, 0.10);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
 .card-body {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.10);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center; /* Teks dan gambar di tengah */
+    display: block;
+    color: white ;
 }
 
 .card-body img {
@@ -67,26 +70,27 @@ body {
 }
 
 h1 {
-    color: black;
+    color: white;
     margin-bottom: 20px;
 }
 
 /* Form styles */
 .form-group {
+    color: #f2f2f2;
     margin-bottom: 15px;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #f2f2f2;
 }
 
 input[type="file"],
 select,
 textarea,
 .btn {
-    background-color: #6c757d;
+    background: rgba(255, 255, 255, 0.10);
     color: white;
     width: 25%;
     padding: 10px;
@@ -94,18 +98,29 @@ textarea,
     border: 1px solid #ccc;
     border-radius: 4px;
     align-items: center;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-primary {
-    background-color: #6c757d;
+    background: rgba(255, 255, 255, 0.10);
     color: white;
     border: none;
     cursor: pointer;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .btn-primary:hover {
-    background-color: black;
+    background-color: #333;
+    color: #f2f2f2;
+}
+
+input[type="file"],
+select,
+textarea,
+.btn:hover {
+    background-color: #333;
     color: #f2f2f2;
 }
 
