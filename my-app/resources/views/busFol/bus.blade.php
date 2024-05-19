@@ -17,6 +17,14 @@
             <li class="nav-item"><a class="nav-link" href="{{ url('aboutUs') }}">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
         </ul>
+        @auth
+            @if(Auth::user()->isAdmin())
+                <form action="{{ route('admin.logout') }}" method="POST" class="form-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+            @endif
+        @endauth
     </nav>
     <div class="container">
         <h1>Category Bus</h1>

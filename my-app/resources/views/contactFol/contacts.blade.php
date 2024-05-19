@@ -17,6 +17,14 @@
             <li class="nav-item"><a class="nav-link" href="{{ url('aboutUs') }}">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
         </ul>
+        @auth
+            @if(Auth::user()->isAdmin())
+                <form action="{{ route('admin.logout') }}" method="POST" class="form-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+            @endif
+        @endauth
     </nav>
     <div class="container">
         <h1>Contacts</h1>
@@ -31,9 +39,11 @@
                     <th>Office Number</th>
                     <th>Fax</th>
                     <th>Location</th>
-                    @if(Auth::user()->isAdmin())
-                        <th>Actions</th>
-                    @endif
+                    @auth
+                        @if(Auth::user()->isAdmin())
+                            <th>Actions</th>
+                        @endif
+                    @endauth
                 </tr>
             </thead>
             <tbody>
@@ -43,23 +53,28 @@
                         <td>{{ $contact->office_num }}</td>
                         <td>{{ $contact->fax }}</td>
                         <td>{{ $contact->location }}</td>
-                        @if(Auth::user()->isAdmin())
-                            <td>
-                                <a href="{{ route('contactFol.contactedit', $contact->id) }}" class="btn btn-primary">Edit</a>
-                                <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" style="display: inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</button>
-                                </form>
-                            </td>
-                        @endif
+                        @auth
+                            @if(Auth::user()->isAdmin())
+                                <td>
+                                    <a href="{{ route('contactFol.contactedit', $contact->id) }}" class="btn btn-primary">Edit</a>
+                                    <form action="{{ route('contacts.destroy', $contact->id) }}" method="POST" style="display: inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</button>
+                                    </form>
+                                </td>
+                            @endif
+                        @endauth
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        @if(Auth::user()->isAdmin())
-            <a href="{{ route('contactFol.contactcreate') }}" class="btn btn-success">Create Contact</a>
-        @endif
+        @auth
+            @if(Auth::user()->isAdmin())
+                <a href="{{ route('contactFol.contactcreate') }}" class="btn btn-success">Create Contact</a>
+            @endif
+        @endauth
     </div>
 </body>
 </html>
+
