@@ -81,7 +81,28 @@
         cursor: pointer;
         border-radius: 5px;
         }
+        
+        .navbar-auth button:hover {
+            background-color: #686868;
+        }
 
-.navbar-auth button:hover {
-    background-color: #686868;
-}
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #e7e7e7;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+            color: #555;
+        }
+        

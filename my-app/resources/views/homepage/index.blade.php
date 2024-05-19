@@ -25,11 +25,18 @@
             @endif
         @endauth
     </nav>
-
     <div class="container">
         <div class="maincontent">
             <h1>Welcome to Our Website</h1>
         </div>
     </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <p><strong>Address:</strong> 1234 Street Name, City, Country</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> info@company.com</p>
+            <p><strong>Company:</strong> Your Company Name</p>
+        </div>
+    </footer>
 </body>
 </html>
