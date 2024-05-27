@@ -14,7 +14,6 @@ Route::get('/', function () {
 Route::get('admin/login', [CustomAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('admin/login', [CustomAuthController::class, 'login']);
 Route::post('admin/logout', [CustomAuthController::class, 'logout'])->name('admin.logout');
-
 Route::get('/category-bus', [BusController::class, 'categoryBus'])->name('busFol.bus');
 Route::get('/bus/{id}', [BusController::class, 'show'])->name('busFol.busshow');
 Route::get('/founders', [FounderController::class, 'founder'])->name('homepage.founder');
