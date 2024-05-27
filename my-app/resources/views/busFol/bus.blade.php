@@ -4,45 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Bus</title>
-    <link href="{{ asset('css/bus.css') }}" rel="stylesheet">
+    <!-- Add CSS stylesheets or link to a CSS file here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card img {
+            max-width: 200px;
+        }
+
+        .btn-group {
+            margin-top: 10px;
+        }
+
+        .btn-group button,
+        .btn-group a {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navbar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('founders') }}">Founder</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Founder</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('category-bus') }}">Category Bus</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('aboutUs') }}">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('contacts') }}">Contact</a></li>
         </ul>
-        @auth
-            @if(Auth::user()->isAdmin())
-                <form action="{{ route('admin.logout') }}" method="POST" class="form-inline">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Logout</button>
-                </form>
-            @endif
-        @endauth
     </nav>
     <div class="container">
         <h1>Category Bus</h1>
+        <!-- Bus type filter buttons -->
         @auth
             @if(Auth::user()->isAdmin())
+                <!-- Admin actions -->
                 <div class="navbar-admin">
                     <a class="btn btn-success" href="{{ route('busFol.buscreate') }}">Add Bus</a>
                 </div>
             @endif
         @endauth
         <div class="btn-group" role="group">
-        <button type="button" class="btn btn-primary" onclick="window.location.href='Big.Bus.php'">Big Bus</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='Medium.Bus.php'">Medium Bus</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='Small.Bus.php'">Small Bus</button>
+            <button type="button" class="btn btn-primary" onclick="filterBuses('big bus')">Big Bus</button>
+            <button type="button" class="btn btn-primary" onclick="filterBuses('medium bus')">Medium Bus</button>
+            <button type="button" class="btn btn-primary" onclick="filterBuses('small bus')">Small Bus</button>
         </div>
         @foreach ($buses as $bus)
             <div class="card mt-4" id="bus{{ $bus->id }}">
                 <div class="card-body">
+                    <!-- Main Bus Image -->
                     <a href="{{ route('busFol.busshow', ['id' => $bus->id]) }}">
                         <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
                     </a>
@@ -50,6 +113,7 @@
                         <h3>{{ $bus->bus_type }}</h3>
                     </a>
                     <p>{{ $bus->specs }}</p>
+                    <!-- Edit and Delete buttons for admins only -->
                     @auth
                         @if(Auth::user()->isAdmin())
                             <div class="btn-group">
@@ -70,10 +134,11 @@
         function filterBuses(busType) {
             const buses = document.querySelectorAll('.card');
             buses.forEach(bus => {
+                // Check if the bus matches the selected bus type
                 if (bus.querySelector('img').alt === busType) {
-                    bus.style.display = 'block';
+                    bus.style.display = 'block';  // Show the bus
                 } else {
-                    bus.style.display = 'none';
+                    bus.style.display = 'none';  // Hide the bus
                 }
             });
         }

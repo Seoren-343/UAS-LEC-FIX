@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Storage;
 class BusController extends Controller
 {
     public function categoryBus()
-    {
-        $buses = Bus::all();
-        return view('busFol.bus', ['buses' => $buses]);
-    }
+{
+    $buses = Bus::all(); // Fetch all bus records
+    return view('busfol.bus', compact('buses'));
+}
+
 
     public function edit($id)
     {
