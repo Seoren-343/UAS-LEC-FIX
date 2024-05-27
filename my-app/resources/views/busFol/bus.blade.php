@@ -36,9 +36,9 @@
             @endif
         @endauth
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary" onclick="filterBuses('big bus')">Big Bus</button>
-            <button type="button" class="btn btn-primary" onclick="filterBuses('medium bus')">Medium Bus</button>
-            <button type="button" class="btn btn-primary" onclick="filterBuses('small bus')">Small Bus</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='Big.Bus.php'">Big Bus</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='Medium.Bus.php'">Medium Bus</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='Small.Bus.php'">Small Bus</button>
         </div>
         @foreach ($buses as $bus)
             <div class="card mt-4" id="bus{{ $bus->id }}">
