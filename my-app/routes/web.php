@@ -32,6 +32,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/contacts/create', [ContactController::class, 'create'])->name('contactFol.contactcreate');
     Route::post('/contacts/store', [ContactController::class, 'store'])->name('contactFol.contactstore');
     Route::delete('/contacts/delete/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+    Route::get('/bus/large', [BusController::class, 'largeBus'])->name('busFol.largebus');
+    Route::get('/bus/medium', [BusController::class, 'mediumBus'])->name('busFol.mediumbus');
+    Route::get('/bus/small', [BusController::class, 'smallBus'])->name('busFol.smallbus');
+
 });
 
 

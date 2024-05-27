@@ -98,6 +98,22 @@ class BusController extends Controller
     return view('busFol.busshow', ['bus' => $bus]);
 }
 
+public function largeBus()
+{
+    return view('busFol.largebus');
+}
+
+    public function mediumBus()
+    {
+        return view('busFol.mediumbus'); // Ensure this view exists
+    }
+
+    public function smallBus()
+    {
+        return view('busFol.smallbus'); // Ensure this view exists
+    }
+
+
 }
 
 
