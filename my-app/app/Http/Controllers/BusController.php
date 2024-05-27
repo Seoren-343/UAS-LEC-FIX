@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Storage;
 class BusController extends Controller
 {
     public function categoryBus()
-{
-    $buses = Bus::all(); // Fetch all bus records
-    return view('busfol.bus', compact('buses'));
-}
+    {
+        $buses = Bus::all();
+        return view('busFol.bus', ['buses' => $buses]);
+    }
 
 
     public function edit($id)
@@ -97,21 +97,6 @@ class BusController extends Controller
     
     return view('busFol.busshow', ['bus' => $bus]);
 }
-
-public function largeBus()
-{
-    return view('busFol.largebus');
-}
-
-    public function mediumBus()
-    {
-        return view('busFol.mediumbus'); // Ensure this view exists
-    }
-
-    public function smallBus()
-    {
-        return view('busFol.smallbus'); // Ensure this view exists
-    }
 
 
 }

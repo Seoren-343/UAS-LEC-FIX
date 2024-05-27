@@ -90,6 +90,14 @@
     <div class="container">
         <h1>Category Bus</h1>
         <!-- Bus type filter buttons -->
+        @auth
+            @if(Auth::user()->isAdmin())
+                <!-- Admin actions -->
+                <div class="navbar-admin">
+                    <a class="btn btn-success" href="{{ route('busFol.buscreate') }}">Add Bus</a>
+                </div>
+            @endif
+        @endauth
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-primary" onclick="filterBuses('big bus')">Big Bus</button>
             <button type="button" class="btn btn-primary" onclick="filterBuses('medium bus')">Medium Bus</button>
