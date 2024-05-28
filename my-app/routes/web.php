@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FounderController;
-use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\GalleryController;
 
 Route::get('/', function () {
     return view('homepage.index');
@@ -18,9 +18,9 @@ Route::post('admin/logout', [CustomAuthController::class, 'logout'])->name('admi
 Route::get('/category-bus', [BusController::class, 'categoryBus'])->name('busFol.bus');
 Route::get('/bus/{id}', [BusController::class, 'show'])->name('busFol.busshow');
 Route::get('/founders', [FounderController::class, 'founder'])->name('homepage.founder');
+Route::get('/galleries', [GalleryController::class, 'gallery'])->name('homepage.gallery');
 Route::get('/aboutUs', [AboutUsController::class, 'aboutus'])->name('homepage.aboutus');
 Route::get('/contacts', [ContactController::class, 'contacts'])->name('contactFol.contacts');
-Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery.index');
 
 //Authenticated Users Access
 Route::middleware(['auth'])->group(function () {
