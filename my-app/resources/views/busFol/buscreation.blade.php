@@ -4,78 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Bus Entry</title>
-    <link href="{{ asset('css/createbus.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="#">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar {
-            background-color: #a6a6a6;
-            color: #fff;
-            padding: 10px;
+        .image-preview {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar-brand {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .navbar-nav {
-            display: flex;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-item {
-            margin-right: 10px;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 50px auto 20px;
-            padding: 20px;
-        }
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        .card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        .card img {
-            max-width: 200px;
-        }
-
-        .btn-group {
+            flex-wrap: wrap;
             margin-top: 10px;
         }
-
-        .btn-group button,
-        .btn-group a {
-            margin-right: 10px;
+        .image-preview img {
+            max-width: 100px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
@@ -87,7 +32,7 @@
         </ul>
     </nav>
 
-    <div class="container">
+    <div class="container mt-4">
         <h1>Create New Bus Entry</h1>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -105,6 +50,12 @@
                 <input type="file" id="bus_picture" name="bus_picture" class="form-control-file" accept="image/*" required>
             </div>
             <div class="form-group">
+                <label for="additional_images">Additional Images:</label>
+                <button type="button" class="btn btn-secondary" id="addImage">Add Image</button>
+                <div class="image-preview" id="imagePreview"></div>
+                <input type="file" id="additional_images" name="additional_images[]" class="form-control-file" accept="image/*" multiple style="display: none;">
+            </div>
+            <div class="form-group">
                 <label for="bus_type">Bus Type:</label>
                 <select id="bus_type" name="bus_type" class="form-control" required>
                     <option value="big bus">Big Bus</option>
@@ -118,5 +69,37 @@
             </div>
             <button type="submit" class="btn btn-primary">Create Bus</button>
         </form>
+    </div>
+    <script>
+        document.getElementById('addImage').addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.name = 'additional_images[]';
+            input.accept = 'image/*';
+            input.classList.add('form-control-file');
+            input.style.display = 'none';
+            
+            input.addEventListener('change', function(event) {
+                const files = event.target.files;
+                const imagePreview = document.getElementById('imagePreview');
+                
+                for (const file of files) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        imagePreview.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            document.getElementById('imagePreview').appendChild(input);
+            input.click();
+        });
+    </script>
 </body>
 </html>
+
+
+

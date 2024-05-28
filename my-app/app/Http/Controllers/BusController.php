@@ -5,23 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Bus;
 use Illuminate\Support\Facades\Storage;
+use App\Models\BusImage;
 
 class BusController extends Controller
 {
     public function categoryBus()
     {
-        $buses = Bus::all();
+        $buses = Bus::with('additionalImages')->get();
         return view('busFol.bus', ['buses' => $buses]);
     }
-
 
     public function edit($id)
     {
         $bus = Bus::find($id);
-        
         return view('busFol.busedit', ['bus' => $bus]);
     }
-    
+
     public function update(Request $request, $id)
     {
         $bus = Bus::findOrFail($id);
@@ -55,19 +54,21 @@ class BusController extends Controller
         return redirect()->route('busFol.bus')->with('success', 'Bus updated successfully');
     }
 
-
-    public function create()
+    public function creation()
     {
-        return view('busFol.buscreate', ['busTypes' => ['big bus', 'medium bus', 'small bus']]);
+        return view('busFol.buscreation', ['busTypes' => ['big bus', 'medium bus', 'small bus']]);
     }
-    
+
     public function store(Request $request)
     {
         $request->validate([
             'bus_picture' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'bus_type' => 'required|string',
             'specs' => 'required|string',
+            'additional_images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
+
+        $bus_picture = null;
 
         if ($request->hasFile('bus_picture')) {
             $file = $request->file('bus_picture');
@@ -76,29 +77,37 @@ class BusController extends Controller
             $bus_picture = 'storage/photos/' . $fileName;
         }
 
-        Bus::create([
+        $bus = Bus::create([
             'bus_picture' => $bus_picture,
             'bus_type' => $request->bus_type,
             'specs' => $request->specs,
         ]);
 
+        if ($request->hasFile('additional_images')) {
+            foreach ($request->file('additional_images') as $additionalImage) {
+                $fileName = time() . '_' . $additionalImage->getClientOriginalName();
+                $additionalImage->storeAs('public/photos', $fileName);
+                $imagePath = 'storage/photos/' . $fileName;
+
+                $bus->additionalimages()->create(['image_path' => $imagePath]);
+            }
+        }
+
         return redirect()->route('busFol.bus')->with('success', 'Bus created successfully');
     }
-    
+
     public function destroy($id)
     {
         $bus = Bus::findOrFail($id);
         $bus->delete();
         return redirect()->route('busFol.bus')->with('success', 'Bus deleted successfully');
     }
+
     public function show($id)
-{
-    $bus = Bus::findOrFail($id);
+    {
+        $bus = Bus::findOrFail($id);
+        return view('busFol.busshow', ['bus' => $bus]);
+    }
+
     
-    return view('busFol.busshow', ['bus' => $bus]);
 }
-
-
-}
-
-

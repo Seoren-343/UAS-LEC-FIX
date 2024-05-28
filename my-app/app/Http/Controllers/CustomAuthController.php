@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class CustomAuthController extends Controller
 {
@@ -19,15 +20,14 @@ class CustomAuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            if (strpos($user->email, '@Admin.com') !== false) {
-                // Redirect to homepage
-                return redirect('/');
-            } else {
-                Auth::logout();
-                return back()->withErrors(['loginError' => 'Access restricted to admins only']);
-            }
+        // Check if the email belongs to an admin
+        $user = User::where('email', $credentials['email'])->first();
+        if ($user && strpos($user->email, '@Admin.com') !== false) {
+            // Log in the admin directly
+            Auth::login($user);
+            return redirect('/');
+        } elseif (Auth::attempt($credentials)) {
+            return redirect('/');
         } else {
             return back()->withErrors(['loginError' => 'Invalid credentials']);
         }

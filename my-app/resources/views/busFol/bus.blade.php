@@ -62,6 +62,7 @@
 
         .card img {
             max-width: 200px;
+            margin-right: 10px;
         }
 
         .btn-group {
@@ -89,13 +90,11 @@
     </nav>
     <div class="container">
         <h1>Category Bus</h1>
-        <!-- Bus type filter buttons -->
         @auth
             @if(Auth::user()->isAdmin())
-                <!-- Admin actions -->
-                <div class="navbar-admin">
-                    <a class="btn btn-success" href="{{ route('busFol.buscreate') }}">Add Bus</a>
-                </div>
+            <div class="navbar-admin">
+                <a class="btn btn-primary" href="{{ route('busFol.buscreation') }}">Add Bus</a>
+            </div>
             @endif
         @endauth
         <div class="btn-group" role="group">
@@ -106,11 +105,14 @@
         @foreach ($buses as $bus)
             <div class="card mt-4" id="bus{{ $bus->id }}">
                 <div class="card-body">
-                    <!-- Main Bus Image -->
-                    <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail" width="200">
+                    <div class="image-gallery">
+                        <img src="{{ asset($bus->bus_picture) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail">
+                        @foreach ($bus->additionalImages as $image)
+                        <img src="{{ asset($image->image_path) }}" alt="{{ $bus->bus_type }}" class="img-thumbnail">
+                        @endforeach
+                    </div>
                     <h3>{{ $bus->bus_type }}</h3>
                     <p>{{ $bus->specs }}</p>
-                    <!-- Edit and Delete buttons for admins only -->
                     @auth
                         @if(Auth::user()->isAdmin())
                             <div class="btn-group">
@@ -131,14 +133,14 @@
         function filterBuses(busType) {
             const buses = document.querySelectorAll('.card');
             buses.forEach(bus => {
-                // Check if the bus matches the selected bus type
                 if (bus.querySelector('img').alt === busType) {
-                    bus.style.display = 'block';  // Show the bus
+                    bus.style.display = 'block';
                 } else {
-                    bus.style.display = 'none';  // Hide the bus
+                    bus.style.display = 'none';
                 }
             });
         }
     </script>
 </body>
 </html>
+

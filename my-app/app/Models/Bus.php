@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bus extends Model
 {
     use HasFactory;
+
     protected $table = 'busfleet';
     protected $fillable = [
         'bus_picture',
@@ -15,8 +16,11 @@ class Bus extends Model
         'specs',
     ];
 
-    public function additional_images()
+    public function additionalImages()
     {
         return $this->hasMany(BusImage::class);
     }
 }
+
+
+
