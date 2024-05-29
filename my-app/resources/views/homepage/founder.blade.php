@@ -25,5 +25,34 @@
             @endif
         @endauth
     </nav>
+    <div class="container">
+        <h1>Meet Our Founder</h1>
+        <section>
+            <h2>Tonny Kusnandar</h2>
+            <p>
+            Jabatan: Direktur  
+            Pendidikan: S1 Teknik Elektro, Institut Teknologi Indonesia, Serpong.
+            Beliau merupakan seorang lulusan S1 Teknik Elektro dari Institut Teknologi Indonesia, Serpong. Selama masa studinya, beliau dikenal sebagai mahasiswa yang tekun dan berprestasi, dengan minat khusus pada teknologi dan inovasi. Setelah menyelesaikan pendidikan di bidang teknik elektro.
+            </p>
+        </section>
+        <section>
+            <h2>Peralihan ke Bisnis Pariwisata:</h2>
+            <p>
+            Melihat peluang besar dalam sektor pariwisata, khususnya di bidang transportasi, Beliau memutuskan untuk mengarahkan kariernya ke industri tersebut. Alasan utama yang mendorongnya adalah potensi bisnis yang menjanjikan serta tingginya permintaan akan layanan transportasi, terutama untuk keperluan studi tour dan wisata. Beliau menyadari bahwa dengan peningkatan jumlah wisatawan dan kebutuhan akan transportasi yang aman dan nyaman, terdapat peluang besar untuk membangun bisnis yang sukses dan berkelanjutan. Sebagai seorang visioner, Beliau mendirikan sebuah perusahaan transportasi pariwisata yang berfokus pada penyediaan layanan penyewaan bus. Perusahaan yang didirikannya tidak hanya menawarkan layanan transportasi yang berkualitas, tetapi juga memberikan pengalaman wisata yang menyenangkan dan aman bagi para pelanggannya.
+            </p>
+        </section>
+        <section>
+            <h2>Kunci Sukses dan Filosofi Bisnis:</h2>
+            <p>
+            Beliau percaya bahwa kunci sukses dalam bisnis adalah memahami kebutuhan pelanggan dan selalu berinovasi untuk memberikan layanan terbaik. Filosofi bisnisnya berpusat pada kepuasan pelanggan, integritas, dan komitmen terhadap kualitas. Beliau selalu menekankan pentingnya membangun hubungan yang baik dengan pelanggan dan mitra bisnis, serta terus beradaptasi dengan perkembangan teknologi dan tren di industri pariwisata.
+            </p>
+        </section>
+        <section>
+            <h2>Kontribusi dan Dampak:</h2>
+            <p>
+            Perusahaan yang didirikan Beliau telah memberikan kontribusi signifikan terhadap perkembangan industri pariwisata lokal. Layanan transportasi yang andal dan berkualitas telah mendukung berbagai kegiatan wisata dan studi tour, membantu banyak sekolah dan institusi dalam menyelenggarakan kegiatan edukasi yang bermakna. Selain itu, perusahaan ini juga membuka lapangan pekerjaan bagi banyak orang, meningkatkan kesejahteraan masyarakat sekitar.
+            </p>
+        </section>
+    </div>
 </body>
 </html>
