@@ -56,8 +56,6 @@ body
     margin-left: 10px;
 }
 
-
-/* Container styles */
 .container {
     width: 80%;
     margin: 20px auto;
@@ -72,18 +70,18 @@ body
     background: rgba(0, 0, 0, 0.10);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Teks dan gambar di tengah */
+    text-align: center;
     display: block;
     color: white ;
-    flex-wrap: wrap; /* Enable wrapping for flex items */
-    justify-content: center; /* Center align the items */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card-body img {
-    width: 400px; /* Set a fixed width */
-    height: 350px; /* Set a fixed height */
-    object-fit: cover; /* Ensure images cover the area without distortion */
-    margin: 10px; /* Space between images */
+    width: 400px; 
+    height: 350px;
+    object-fit: cover; 
+    margin: 10px; 
 }
 
 .image-gallery {
@@ -91,16 +89,16 @@ body
 }
 
 .gallery-item {
-    width: 300px; /* Set the width to a third of the container width for 3 images */
-    height: 200px; /* Adjust the height automatically */
-    margin: 10px; /* Add margin to create space between images */
-    display: inline-block; /* Change display to inline-block for proper alignment */
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    display: inline-block;
 }
 
 
 
 .img-thumbnail {
-    width: 100%; /* Mengisi lebar penuh dari .gallery-item */
+    width: 100%;
 }
 
 h1 {
@@ -108,7 +106,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Form styles */
 .form-group {
     color: #f2f2f2;
     margin-bottom: 15px;
@@ -158,7 +155,6 @@ textarea,
     color: #f2f2f2;
 }
 
-/* Alert styles */
 .alert {
     padding: 10px;
     background-color: #f44336;
@@ -176,7 +172,7 @@ textarea,
     width: 100%;
     background: rgba(0, 0, 0, 0.10);
     color: white;
-    position: relative; /* Changed from fixed to relative */
+    position: relative;
     bottom: 0;
     left: 0;
     z-index: 999;

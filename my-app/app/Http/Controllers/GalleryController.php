@@ -9,7 +9,7 @@ class GalleryController extends Controller
 {
     public function gallery()
     {
-        $buses = Bus::all(); // Or fetch buses as needed
+        $buses = Bus::all();
         return view('homepage.gallery', compact('buses'));
     }
 }

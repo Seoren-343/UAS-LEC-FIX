@@ -20,10 +20,8 @@ class CustomAuthController extends Controller
             'password' => 'required',
         ]);
 
-        // Check if the email belongs to an admin
         $user = User::where('email', $credentials['email'])->first();
         if ($user && strpos($user->email, '@Admin.com') !== false) {
-            // Log in the admin directly
             Auth::login($user);
             return redirect('/');
         } elseif (Auth::attempt($credentials)) {

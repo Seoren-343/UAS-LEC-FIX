@@ -7,7 +7,6 @@ body
     position: relative;
 }
 
-/* Navbar styles */
 .navbar {
     color: white;
     padding: 10px 20px;
@@ -38,8 +37,6 @@ body
     border-radius: 4px;
 }
 
-
-/* Container styles */
 .container {
     width: 80%;
     margin: 20px auto;
@@ -54,7 +51,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Form styles */
 .form-group {
     margin-bottom: 15px;
 }
@@ -87,7 +83,6 @@ input[type="text"],
     background-color: #333;
     color: #f2f2f2;
 }
-/* Alert styles */
 .alert {
     padding: 10px;
     background-color: #f44336;
@@ -101,7 +96,7 @@ input[type="text"],
     width: 100%;
     background: rgba(0, 0, 0, 0.10);
     color: white;
-    position: relative; /* Changed from fixed to relative */
+    position: relative;
     bottom: 0;
     left: 0;
     z-index: 999;

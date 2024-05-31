@@ -56,7 +56,6 @@ body
     margin-left: 10px;
 }
 
-/* Container styles */
 .container {
     color: white;
     width: 80%;
@@ -99,12 +98,11 @@ h1
     width: 100%;
     background: rgba(0, 0, 0, 0.10);
     color: white;
-    position: relative; /* Changed from fixed to relative */
+    position: relative;
     bottom: 0;
     left: 0;
     z-index: 999;
 }
-
 
 .footer-container {
     max-width: 1200px;

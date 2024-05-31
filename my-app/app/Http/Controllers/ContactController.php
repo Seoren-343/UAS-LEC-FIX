@@ -13,8 +13,6 @@ class ContactController extends Controller
         return view('contactFol.contacts', ['contacts' => $contacts]);
     }
     
-    
-
     public function edit(Contact $contact) {
         $contacts = Contact::all();
         return view('contactFol.contactedit', compact('contact', 'contacts'));
@@ -33,7 +31,6 @@ class ContactController extends Controller
         return redirect()->route('contactFol.contacts')->with('success', 'Contact updated successfully');
     }
     
-
     public function create()
     {
         return view('contactFol.contactcreate');

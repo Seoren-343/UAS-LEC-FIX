@@ -8,7 +8,6 @@
 </head>
 <body>
     <nav class="navbar">
-        <a class="navbar-brand" href="#">Your Website</a>
         <ul class="navbar-nav">
             <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('founders') }}">Founder</a></li>

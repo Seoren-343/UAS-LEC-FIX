@@ -20,38 +20,45 @@ class BusController extends Controller
         $bus = Bus::find($id);
         return view('busFol.busedit', ['bus' => $bus]);
     }
-
+    
     public function update(Request $request, $id)
     {
         $bus = Bus::findOrFail($id);
 
-        $request->validate([
-            'bus_type' => 'required|string',
-            'specs' => 'required|string',
-            'new_bus_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'additional_images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
-        ]);
-
-        if ($request->hasFile('new_bus_picture')) {
-            if ($bus->bus_picture) {
-                Storage::disk('public')->delete($bus->bus_picture);
-            }
-            $path = $request->file('new_bus_picture')->store('bus_pictures', 'public');
-            $bus->bus_picture = $path;
+        if ($request->has('delete_bus_picture') && $request->delete_bus_picture == 1) {
+            Storage::delete($bus->bus_picture);
+            $bus->bus_picture = null;
         }
 
-        if ($request->hasFile('additional_images')) {
-            foreach ($request->file('additional_images') as $additionalImage) {
-                $path = $additionalImage->store('bus_pictures', 'public');
-                $bus->additional_images()->create(['image_path' => $path]);
+        if ($request->has('delete_additional_images')) {
+            foreach ($request->delete_additional_images as $imageId) {
+                $image = BusImage::findOrFail($imageId);
+                Storage::delete($image->image_path);
+                $image->delete();
             }
         }
 
         $bus->bus_type = $request->input('bus_type');
         $bus->specs = $request->input('specs');
+
+        if ($request->hasFile('bus_picture')) {
+            $busPicturePath = $request->file('bus_picture')->store('photos');
+            $bus->bus_picture = $busPicturePath;
+        }
+
+        if ($request->hasFile('new_additional_images')) {
+            foreach ($request->file('new_additional_images') as $image) {
+                $fileName = time() . '_' . $image->getClientOriginalName();
+                $image->storeAs('public/photos', $fileName); // Save in the same path as bus_picture
+                $imagePath = 'storage/photos/' . $fileName;
+                $busImage = new BusImage(['image_path' => $imagePath]);
+                $bus->additionalImages()->save($busImage);
+            }
+        }
+
         $bus->save();
 
-        return redirect()->route('busFol.bus')->with('success', 'Bus updated successfully');
+        return redirect()->route('busFol.bus', $bus->id)->with('success', 'Bus updated successfully.');
     }
 
     public function creation()
@@ -108,6 +115,4 @@ class BusController extends Controller
         $bus = Bus::findOrFail($id);
         return view('busFol.busshow', ['bus' => $bus]);
     }
-
-    
 }
