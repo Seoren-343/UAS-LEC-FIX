@@ -13,7 +13,7 @@
             <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('founders') }}">Founder</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('busFol.bus') }}">Category Bus</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('galleries') }}">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('aboutUs') }}">About Us</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('contactFol.contacts') }}">Contact</a></li>
         </ul>
