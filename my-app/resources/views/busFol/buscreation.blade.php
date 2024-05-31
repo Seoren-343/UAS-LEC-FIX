@@ -102,8 +102,8 @@
         <div class="footer-container">
             <div class="footer-column">
                 <h3>ADDRESS</h3>
-                <p>Jalan Cipayung Raya, Cipayung, Jakarta Timur</p>
-                <p>13840 (Depan SMA 4 PGRI)</p>
+                <p>Jl. Moh. Toha No.30B, Pamulang Tim., Kec. Pamulang</p>
+                <p>Kota Tangerang Selatan, Banten 15412</p>
             </div>
             <div class="footer-column">
                 <h3>PHONE</h3>
