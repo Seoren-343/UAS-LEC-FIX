@@ -1,4 +1,5 @@
 body {
+    padding-top: 70px; /* Adjust this value to match the height of your navbar */
     font-family: 'Nunito', sans-serif;
     background: url('/Gallery/bg.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -8,6 +9,7 @@ body {
     margin: 0;
     background-color: rgba(0, 0, 0, 1);
 }
+
 
 /* Navbar styles */
 .navbar {
@@ -36,22 +38,23 @@ body {
 }
 
 .nav-link:hover {
-    background-color: #003366;
+    background-color: #333;
     border-radius: 4px;
 }
+
 
 /* Container styles */
 .container {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f2f2f2;
+    background: rgba(0, 0, 0, 0.10);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
 }
-
 h1 {
-    color: black;
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -71,7 +74,7 @@ h1 {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: white;
 }
 
 input[type="file"],
@@ -86,13 +89,42 @@ textarea,
 }
 
 .btn-primary {
-    background-color: #333;
+    background: rgba(255, 255, 255, 0.10);
     color: white;
     border: none;
     cursor: pointer;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .btn-primary:hover {
-    background-color: black;
+    background-color: #333;
+    color: #f2f2f2;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.10);
+    color: white;
+    position: relative; /* Changed from fixed to relative */
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-column p,
+.footer-column a {
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
 }

@@ -50,27 +50,35 @@ body
     background-color: #333;
     border-radius: 4px;
 }
+
 .navbar-auth 
 {
     margin-left: 10px;
 }
 
-.container 
-{
-    padding: 20px;
+/* Container styles */
+.container {
     color: white;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.10);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 .maincontent 
 {
-    margin-top: 50px;
+    width: 100%;
+    text-align: justify;
 }
 
 h1 
 {
     margin-bottom: 20px;
+    text-align: center;
 }
-
 
 .navbar-auth button {
     background-color: #000000;
@@ -83,4 +91,32 @@ h1
 
 .navbar-auth button:hover {
     background-color: #686868;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.10);
+    color: white;
+    position: relative; /* Changed from fixed to relative */
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+}
+
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-column p,
+.footer-column a {
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
 }

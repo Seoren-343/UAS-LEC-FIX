@@ -65,3 +65,31 @@ p {
     color: #333;
     line-height: 1.6;
 }
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.10);
+    color: white;
+    position: relative; /* Changed from fixed to relative */
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+}
+
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-column p,
+.footer-column a {
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}

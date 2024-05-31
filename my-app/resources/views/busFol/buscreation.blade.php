@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Bus Entry</title>
     <link rel="stylesheet" href="#">
+    <link href="{{ asset('css/AddBus.css') }}" rel="stylesheet">
     <style>
         .image-preview {
             display: flex;
@@ -98,6 +99,34 @@
             input.click();
         });
     </script>
+      <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>ADDRESS</h3>
+                <p>Jalan Cipayung Raya, Cipayung, Jakarta Timur</p>
+                <p>13840 (Depan SMA 4 PGRI)</p>
+            </div>
+            <div class="footer-column">
+                <h3>PHONE</h3>
+                <p>Contact Office</p>
+                <p>0813-1127-7272</p>
+                <p>021-7496562</p>
+                <p>021-7490311</p>
+                <p>Fax: 021-7419242</p>
+            </div>
+            <div class="footer-column">
+                <h3>EMAIL</h3>
+                <p>bisichtrahaya@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>COMPANY</h3>
+                <a href="{{ url('founders') }}">Founder</a>
+                <a href="{{ url('galleries') }}">Gallery</a>
+                <a href="{{ url('aboutUs') }}">About Us</a>
+                <a href="{{ url('contacts') }}">Contact</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
 

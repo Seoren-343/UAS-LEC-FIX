@@ -4,24 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
-    <link href="{{ asset('css/gallery.css') }}" rel="stylesheet">
-    <style>
-        .image-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .gallery-item {
-            flex: 0 0 calc(25% - 20px); /* Adjust width as needed */
-            margin-bottom: 20px;
-        }
-
-        .img-thumbnail {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+    <link href="{{ asset('css/Gallery.css') }}" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -47,5 +30,33 @@
             @endforeach
         </div>
     </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>ADDRESS</h3>
+                <p>Jalan Cipayung Raya, Cipayung, Jakarta Timur</p>
+                <p>13840 (Depan SMA 4 PGRI)</p>
+            </div>
+            <div class="footer-column">
+                <h3>PHONE</h3>
+                <p>Contact Office</p>
+                <p>0813-1127-7272</p>
+                <p>021-7496562</p>
+                <p>021-7490311</p>
+                <p>Fax: 021-7419242</p>
+            </div>
+            <div class="footer-column">
+                <h3>EMAIL</h3>
+                <p>bisichtrahaya@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>COMPANY</h3>
+                <a href="{{ url('founders') }}">Founder</a>
+                <a href="{{ url('galleries') }}">Gallery</a>
+                <a href="{{ url('aboutUs') }}">About Us</a>
+                <a href="{{ url('contacts') }}">Contact</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
